@@ -41,6 +41,12 @@
 
   <lib dir="${solr.install.dir:../../..}/contrib/velocity/lib" regex=".*\.jar" />
   <lib dir="${solr.install.dir:../../..}/dist/" regex="solr-velocity-\d.*\.jar" />
+  <lib dir="/cul/data/solr/jrc88.solr.library.cornell.edu/collectiondev/lib/contrib/analysis-extras/lib" />
+  <lib dir="/cul/data/solr/jrc88.solr.library.cornell.edu/collectiondev/lib/contrib/analysis-extras/lucene-libs" />
+
+
+
+
   <directoryFactory name="DirectoryFactory" 
                     class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}">
   </directoryFactory> 
@@ -58,7 +64,7 @@
          The settings used will be from the first HdfsDirectoryFactory created. -->    
     <str name="solr.hdfs.blockcache.global">${solr.hdfs.blockcache.global:true}</str>
 
-    
+
 
   <codecFactory class="solr.SchemaCodecFactory"/>
 
