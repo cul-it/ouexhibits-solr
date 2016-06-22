@@ -3,15 +3,15 @@
   <!-- NOTE: various comments and unused configuration possibilities have been purged
      from this file.  Please refer to http://wiki.apache.org/solr/SolrConfigXml,
      as well as the default solrconfig file included with Solr -->
-  
+
   <abortOnConfigurationError>${solr.abortOnConfigurationError:true}</abortOnConfigurationError>
-  
+
   <luceneMatchVersion>4.10.4</luceneMatchVersion>
 
-  <directoryFactory name="DirectoryFactory" 
+  <directoryFactory name="DirectoryFactory"
                     class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}">
-  </directoryFactory> 
-  
+  </directoryFactory>
+
   <updateHandler class="solr.DirectUpdateHandler2">
     <updateLog>
       <str name="dir">${solr.core0.data.dir:}</str>
@@ -21,7 +21,7 @@
   <!-- solr lib dirs -->
   <lib dir="/cul/data/solr/jrc88.solr.library.cornell.edu/collectiondev/lib/contrib/analysis-extras/lib" />
   <lib dir="/cul/data/solr/jrc88.solr.library.cornell.edu/collectiondev/lib/contrib/analysis-extras/lucene-libs" />
- 
+
   <dataDir>${solr.data.dir:}</dataDir>
 
   <requestHandler name="search" class="solr.SearchHandler" default="true">
@@ -62,16 +62,16 @@
     </lst>
   </requestHandler>
 
-  <requestHandler name="/replication" class="solr.ReplicationHandler" startup="lazy" /> 
-  
+  <requestHandler name="/replication" class="solr.ReplicationHandler" startup="lazy" />
+
   <requestDispatcher handleSelect="true" >
     <requestParsers enableRemoteStreaming="true" multipartUploadLimitInKB="2048" />
   </requestDispatcher>
-  
+
   <requestHandler name="/analysis/field" startup="lazy" class="solr.FieldAnalysisRequestHandler" />
   <requestHandler name="/update" class="solr.UpdateRequestHandler"  />
   <requestHandler name="/admin/" class="org.apache.solr.handler.admin.AdminHandlers" />
-  
+
   <requestHandler name="/admin/ping" class="solr.PingRequestHandler">
     <lst name="invariants">
       <str name="q">solrpingquery</str>
@@ -80,10 +80,10 @@
       <str name="echoParams">all</str>
     </lst>
   </requestHandler>
-  
-  <!-- config for the admin interface --> 
+
+  <!-- config for the admin interface -->
   <admin>
     <defaultQuery>search</defaultQuery>
   </admin>
-  
+
 </config>
