@@ -54,6 +54,30 @@
      </lst>
   </requestHandler>
 
+  <requestHandler name="permissions" class="solr.SearchHandler" >
+    <lst name="defaults">
+      <str name="facet">off</str>
+      <str name="echoParams">all</str>
+      <str name="rows">1</str>
+      <str name="q">{!raw f=id v=$id}</str> <!-- use id=666 instead of q=id:666 -->
+      <str name="fl">
+        id,
+        access_ssim,
+        discover_access_group_ssim,discover_access_person_ssim,
+        read_access_group_ssim,read_access_person_ssim,
+        edit_access_group_ssim,edit_access_person_ssim,
+        download_access_group_ssim,download_access_person_ssim,
+        depositor_ti,
+        embargo_release_date_dtsi
+        inheritable_access_ssim,
+        inheritable_discover_access_group_ssim,inheritable_discover_access_person_ssim,
+        inheritable_read_access_group_ssim,inheritable_read_access_person_ssim,
+        inheritable_edit_access_group_ssim,inheritable_edit_access_person_ssim,
+        inheritable_embargo_release_date_dtsi
+      </str>
+    </lst>
+  </requestHandler>
+
   <requestHandler name="/get" class="solr.RealTimeGetHandler">
     <lst name="defaults">
       <str name="omitHeader">true</str>
